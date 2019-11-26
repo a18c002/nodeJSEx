@@ -1,0 +1,590 @@
+@mixin basicTabs()
+  &__item
+    font-size: map-get($fontSize,medium)
+    font-weight: bold
+    color: $mainFontColor
+    &.is-active
+      color: $mainColor
+    &:focus.is-active.is-focus:not(:active)
+      box-shadow: none
+  &__active-bar
+    height: 3px
+  &__nav-wrap::after
+    background-color: $borderDark1
+    height: 3px
+@mixin basicTable()
+  font-size: map-get($fontSize,small)
+  color: $mainFontColor
+  &__empty-text
+    color: $subFontColor
+  &__header
+    th
+      font-weight: bold
+      color: $mainFontColor
+      background-color: $bgDark3
+      border-right-color: $borderDark1
+      padding: 10px 0 7px
+      .sort-caret.ascending
+        border-bottom-color: $mainFontColor
+      .sort-caret.descending
+        border-top-color: $mainFontColor
+      &.ascending
+        .sort-caret.ascending
+          border-bottom-color: $mainColor
+      &.descending
+        .sort-caret.descending
+          border-top-color: $mainColor
+  &__body
+    tr:hover,tr.hover-row
+      > td
+        background-color: $defaultColorHover
+        &:first-child
+          border-left: solid 4px #419f7d
+    a
+      color: $mainColor  
+@mixin basicForm()
+  display: flex
+  flex-wrap: wrap
+  width: 100%
+  .el-form-item
+    width: 100%
+    margin: 0 0 22px
+    padding-right: 10px
+    box-sizing: border-box
+    $itemLineHeight: 30px
+    &.half
+      width: 50%
+    &__label
+      font-size: map-get($fontSize,small)
+      color: $mainFontColor
+      margin-right: 20px
+      line-height: $itemLineHeight
+      .desc
+        font-weight: normal
+        line-height: 1
+        &.link
+          cursor: pointer
+          color: $mainColor
+          text-decoration: underline
+      .label_link
+        z-index: 3
+        position: relative
+    &__content
+      position: relative
+      font-size: map-get($fontSize,small)
+      color: $mainFontColor
+      line-height: $itemLineHeight
+      p
+        display: inline-block
+        min-width: 100%
+      input
+        font-size: map-get($fontSize,small)
+        color: $mainFontColor
+      textarea
+        font-size: map-get($fontSize,small)
+        padding-bottom: 25px
+        color: $mainFontColor
+      span.num
+        position: absolute
+        right: 20px
+        bottom: -4px
+        font-size: map-get($fontSize,x-small)
+        color: $subFontColor
+      .el-checkbox-group
+        display: inline-block
+        min-width: 100%
+@mixin basicFormInsert()
+  display: flex
+  flex-wrap: wrap
+  width: 100%
+  .el-form-item
+    display: flex
+    width: 100%
+    box-sizing: border-box
+    flex-direction: column
+    margin-bottom: 24px
+    $itemLineHeight: 30px
+    &.half
+      width: 50%
+    &__label
+      font-size: map-get($fontSize,small)
+      color: $mainFontColor
+      line-height: $itemLineHeight
+      .desc
+        font-weight: normal
+        line-height: 1
+        &.link
+          cursor: pointer
+          color: $mainColor
+          text-decoration: underline
+      .label_link
+        z-index: 3
+        position: relative
+    &__content
+      position: relative
+      font-size: map-get($fontSize,small)
+      color: $mainFontColor
+      line-height: $itemLineHeight
+      width: 100%
+      p
+        display: inline-block
+        min-width: 100%
+      .el-input
+        font-size: map-get($fontSize,small)
+        color: $mainFontColor
+        width: 100%
+      textarea
+        font-size: map-get($fontSize,small)
+        padding-bottom: 25px
+        color: $mainFontColor
+      span.num
+        position: absolute
+        right: 20px
+        bottom: -4px
+        font-size: map-get($fontSize,x-small)
+        color: $subFontColor
+      .el-checkbox-group
+        display: inline-block
+        min-width: 100%
+@mixin basicDialog()
+  min-width: 730px
+  width: 50%
+  border-radius: 8px
+  overflow: hidden
+  &.sm-size
+    min-width: 540px
+    width: 30%
+  &.lg-size
+    min-width: 900px
+    width: 90%
+  .el-dialog__header
+    background-color: $bgDark3
+    text-align: left
+  .el-dialog__title
+    color: $mainFontColor
+    font-size: map-get($fontSize,large)
+    font-weight: bold
+    line-height: 32px
+  .el-dialog__body
+    font-size: map-get($fontSize,small)
+    padding: 35px 40px
+  .el-dialog__footer
+    padding: 30px 0
+    margin: 0 40px
+    border-top: solid 1px $borderDark1
+  .el-dialog__close
+    font-size: 25px
+    font-weight: bolder
+    color: $subFontColor
+  h4
+    color: $mainFontColor
+    font-size: 17px
+    font-weight: bold
+    margin: 10px 0 15px
+  .el-form
+    +basicForm
+    .el-tag
+      margin: 0 10px 5px 0    
+@mixin KNSDialog()
+  min-width: 730px
+  width: 50%
+  border-radius: 8px
+  overflow: hidden
+  &.sm-size
+    min-width: 540px
+    width: 30%
+  &.lg-size
+    min-width: 900px
+    width: 90%
+  .el-dialog__header
+    padding-bottom: 10px
+    background: #cecece
+    color: #333333
+    border-top-left-radius: 3px
+    border-top-right-radius: 3px
+    font-size: 16px
+    .title-bar
+      text-align: left
+      .title
+        display: block
+        font-size: 20px
+        font-weight: bold
+        line-height: 1.2
+        color: #5f5f5f      
+      .subtitle
+        display: block
+        font-size: 18px
+        color: #4c4c4c
+        font-weight: normal
+  .el-dialog__title
+    color: $mainFontColor
+    font-size: map-get($fontSize,large)
+    font-weight: bold
+    line-height: 32px
+  .el-dialog__body
+    font-size: map-get($fontSize,small)
+    padding: 20
+  .el-dialog__footer
+    padding: 30px 0
+    margin: 0 40px
+    border-top: solid 1px $borderDark1
+  .el-dialog__close
+    color: #333333 
+    font-size: 32px
+    text-shadow: none
+    opacity: .5
+    margin-top: -8px
+    font-weight: bold
+    &:hover
+      opacity: 0.7
+  h4
+    color: $mainFontColor
+    font-size: 17px
+    font-weight: bold
+    margin: 10px 0 15px
+  .el-form
+    +basicForm
+    .el-tag
+      margin: 0 10px 5px 0
+  .dialog-title
+    display: flex
+    justify-content: space-between
+  .advanced-cog
+    margin-right: 50px
+    padding: 10px 8px 8px
+    border-radius: 2px
+    font-size: 17px
+    font-weight: normal
+    background-color: #ececec
+    background-image: -webkit-linear-gradient(top,#ececec,#e5e5e5)
+    color: #333
+    border: 1px solid rgba(0,0,0,0.1)
+    box-shadow: 1px 1px 2px 0px #888
+    cursor: pointer
+    i
+      vertical-align: sub
+      font-size: 26px
+      padding-right: 5px
+    &:hover
+      border: 1px solid #c6c6c6
+      background-color: #eee
+      background-image: -webkit-linear-gradient(top,#dadada,#d9d9d9)
+  .way-select
+    ul
+      display: flex
+      justify-content: center
+      padding: 30px 0px
+    li
+      text-align: center
+      width: 260px
+      margin: 0 10px
+      cursor: pointer
+      display: block
+      padding: 20px 30px
+      line-height: 1.42857143
+      background-color: #fff
+      border: 1px solid #999
+      border-radius: 4px
+      color: #333
+      &:hover
+        background-color: #bae2d7
+      h3
+        margin-top: 20px
+        margin-bottom: 10px
+        font-weight: bold
+        font-size: 22px
+@mixin KNSDialogTable()
+  font-size: map-get($fontSize,small)
+  color: $mainFontColor
+  &__empty-text
+    color: $subFontColor
+  &__header
+    tr
+      font-weight: normal
+      font-size: 16px
+      color: #000
+    th
+      background-color: #ecefee
+      text-align: center
+  &__body
+    tr
+      > td
+        // background-color: #feffef
+        font-size: 17px
+        text-align: center
+    tr:hover,tr.hover-row
+      > td
+        background-color: #FFFFCB
+    a
+      color: $mainColor
+@mixin KNSSwitch()
+  .el-switch__core
+    border-radius: 0 !important
+    height: 24px
+    width: 51px !important
+    &::after
+      content: ""
+      border-radius: 0 
+      width: 24px
+      height: 20px
+      border-radius: 2px
+    &::before
+      content: "開"
+      position: absolute
+      top: 1px
+      right: 5px
+      z-index: 1
+      font-weight: bold
+      color: rgb(51, 50, 50)
+@mixin KNSSwitchIsChecked()
+  .el-switch__core
+    &::after
+      margin-left: -26px !important
+    &::before
+      content: "關"
+      position: absolute
+      top: 1px
+      left: 5px
+      z-index: 1
+      font-weight: 300
+      color: #fff      
+@mixin LoadingEffect()
+  .spinner
+    text-align: center
+    > div
+      width: 18px
+      height: 18px
+      background-color: $mainColor
+      border-radius: 100%
+      display: inline-block
+      -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both
+      animation: sk-bouncedelay 1.4s infinite ease-in-out both
+    .bounce1
+      -webkit-animation-delay: -0.32s
+      animation-delay: -0.32s
+    .bounce2
+      -webkit-animation-delay: -0.16s
+      animation-delay: -0.16s
+  @-webkit-keyframes sk-bouncedelay
+    0%, 80%, 100%
+      -webkit-transform: scale(0)
+    40%
+      -webkit-transform: scale(1)
+  @keyframes sk-bouncedelay
+    0%, 80%, 100%
+      -webkit-transform: scale(0)
+      transform: scale(0)
+    40%
+      -webkit-transform: scale(1)
+      transform: scale(1)
+@mixin NewsStatusTag()
+  //未刊登
+  .tag
+    color: #fff
+    padding: 4px 12px
+  .status-off
+    color: #7F7F7F
+  .status-off-tag
+    background-color: #7F7F7F
+  //已下架
+  .status-offline
+    color: $dangerColor
+  .status-offline-tag
+    background-color: $dangerColor
+  //刊登中
+  .status-on
+    color: $mainColor
+  .status-on-tag
+    background-color: $mainColor
+  //待刊登
+  .status-wait
+    color: $correctColor
+  .status-wait-tag
+    background-color: $correctColor
+@mixin quickMenuEffect ()
+  animation-duration: 0.5s
+  animation-fill-mode: both
+  animation-name: fadeInDown
+  @-webkit-keyframes fadeInDown 
+    0% 
+      opacity: 0
+      -webkit-transform: translateY(-20px)
+    100% 
+      opacity: 1
+      -webkit-transform: translateY(0)
+@mixin SNGetDialog()
+  /deep/ .el-dialog__body
+    padding: 0
+  .SN-wrap
+    display: flex
+    > div
+      height: 120px
+      display: flex
+      justify-content: center
+      align-items: center
+      border-bottom: solid 1px #ccc 
+    .title
+      width: 27.5%
+      border-right: solid 1px #ccc
+      background-color: #eef4f7
+      color: #5f5f5f
+      font-size: 17px
+      font-weight: bold
+    .SN
+      width: 45%
+      font-size: 38px
+      color: #4c4c4c
+      font-weight: bold
+      border-right: solid 1px #ccc
+    .button
+      width: 27.5%
+  .info-wrap
+    color: #2f2f2f
+    font-size: 17px
+    line-height: 1.9
+    padding: 30px 35px 26px
+    .tag
+      color: #ff0000
+      background-color: #ffff00
+      font-weight: bold
+      padding: 8px 5px 1px
+      line-height: initial
+@mixin KNS-OneClick()
+  /deep/ .el-dialog
+    width: 90%
+    height: 90vh
+    min-width: 900px
+    min-height: 600px
+    top: 50%
+    transform: translateY(-50%)
+  /deep/ .el-dialog__header
+    padding: 25px
+    background-color: $mainColor
+    .el-dialog__headerbtn
+      top: 10px
+      right: 10px
+      i
+        color: #ffffff
+        font-size: 30px
+  /deep/ .el-dialog__body
+    height: calc( 100% - 50px - 70px)
+    padding: 0
+  /deep/ .el-dialog__footer
+    border-top: solid 1px #ddd
+    text-align: center
+    height: 70px
+    padding: 10px 0
+    button
+      height: 50px
+      span
+        font-size: 19px
+        font-weight: 400
+      &.active
+        color: $mainColor
+        border-color: $mainColor
+  /deep/ .el-tabs
+    height: calc(100% - 80px)
+    .el-tabs__header
+      display: none
+    .el-tabs__content
+      height: 100%
+      padding: 20px 30px
+      box-sizing: border-box
+  .top-wrap
+    display: flex
+    justify-content: space-between
+    background-color: $mainColor
+    box-sizing: border-box
+    padding: 0px 40px
+    transform: translateY(-1px)
+    .tablet-wrap
+      color: #fff
+      margin-top: 25px
+      .title
+        font-weight: bold
+        font-size: 38px
+      .tabletNote
+        padding-left: 5px
+        font-size: 19px
+        opacity: 0.8
+    .btn-wrap
+      display: flex
+      transform: translateY(1px)
+      width: 35%
+      height: 80px
+      .btn
+        padding: 20px 0px 10px 0px
+        font-size: 32px
+        color: #fff
+        cursor: pointer
+        border-radius: 10px 10px 0 0
+        text-align: center
+        width: 50%
+        &.active
+          color: #5f5f5f
+          background-color: #fff 
+        .count
+          background-color: #d15b2c
+          color: #fff
+          font-weight: normal
+          margin-top: -10px
+          margin-left: 8px
+          font-size: 40px
+          padding: 3px 20px
+          border-radius: 50em
+          min-width: 84px
+  .tab-body
+    height: 100%
+    .note-wrap
+      display: flex
+      height: 55px
+      .noteInput
+        .title
+          font-weight: bold
+          font-size: 21px
+          color: #2e3539
+        .note
+          display: inline-block
+          font-size: 20px
+          padding: 10px
+          box-shadow: none
+          width: 480px
+          margin-left: 15px
+          border: solid 1px #ddd
+      .noteSample
+        margin-left: 15px
+        display: flex
+        flex-direction: column
+        .title
+          color: #81959f
+          font-size: 17px
+          font-weight: bold
+          margin-bottom: 15px
+        .sample-wrap
+          span
+            color: #81959f
+            background-color: #eceff1
+            padding: 6px 15px 4px
+            border-radius: 50em
+            font-size: 15px
+            cursor: pointer
+            margin-right: 5px
+    .list-wrap
+      height: calc( 100% - 55px)
+      .title-bar
+        margin: 20px 0 10px 0
+        height: 40px
+        align-items: flex-end
+        h3
+          float: left
+          font-weight: bold
+          font-size: 21px
+          color: #2e3539
+          margin-top: 15px
+        button
+          float: right
+          margin-left: 10px
+      .list
+        height: calc( 100% - 60px )
+        overflow: auto
+        padding-bottom: 20px 
